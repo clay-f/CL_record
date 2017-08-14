@@ -18,7 +18,7 @@ end
 
 def all_oddp(n)
   return true if(n.empty?)
-  
+
   if(n.first.even?)
     false
   else
