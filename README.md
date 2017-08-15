@@ -40,3 +40,26 @@
     (cond ((null x) 0)
           (t (+ 1 (count-slices (rest x))))))
 ```
+
+##### List-Consing Recursion
+```lisp
+(DEFUN func (N)
+    (COND (end-test NIL)
+          (T (CONS new-element
+                   (FUNC reduced-n)))))
+
+(defun laugh (n)
+  (cond ((zerop n) nil)
+        (t (cons 'ha (laugh (- n 1))))))
+```
+
+##### Simultaneous Recursion on several Variable (Single-Test Tail)
+```lisp
+(DEFUN func (N X)
+    (COND (end-test end-value)
+          (T (func reduced-n reduced-x))))
+
+(defun my-nth (n x)
+    (cond ((zerop n) (first x))
+          (t (my-nth (- n 1) (rest x)))))
+```

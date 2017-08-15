@@ -40,3 +40,17 @@
         ((equal n 1) 1)
         (t (combine (fib (- n 1))
                     (fib (- n 2))))))
+
+(defun count-down (n)
+  (cond ((zerop n) nil)
+        (t (cons n (count-down (- n 1))))))
+
+(defun my-nth (n x)
+    (cond ((zerop n) (first x))
+          ((null x) nil)
+          (t (my-nth (- n 1) (rest x)))))
+
+(defun my-member (e x)
+  (cond ((null x) nil)
+        ((equal e (first x)) x)
+        (t (my-member e (rest x)))))
