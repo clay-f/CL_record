@@ -28,4 +28,15 @@ def all_oddp(n)
   end
 end
 
-puts all_oddp([1, 3, 5, 7, 9, 11, 13, 17, 19, 15, 2])
+def extra_number(nums)
+  if (nums.empty?)
+    return 0
+  elsif (nums.first.is_a?(Integer))
+      (nums.first + extra_number(rest(nums)))
+  else
+    extra_number(rest(nums))
+  end
+end
+
+
+puts extra_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "hello", "world", "foo", "bar", "baz", 1])
