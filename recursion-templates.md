@@ -74,3 +74,33 @@
                 (extract-symbols (rest x))))
          (t (extract-symbols (rest x)))))
 ```
+
+#### Multiple Recursion
+```lisp
+(DEFUN func (N)
+  (COND (end-test-1 end-value-1)
+      (end-test-2 env-value-2)
+      (T (combiner (func first-reduced-n)
+                   (func second-reduced-n)))))
+
+(defun fib (n)
+  (cond ((equal n 0) 1)
+        ((equal n 1) 1)
+        (t (+ (fib (- n 1))
+              (fib (- n 2))))))
+```
+
+#### CAR/CDR Recursion (A Special Case of Multiple Recursion)
+```lisp
+(DEFUN func (X)
+  (COND (end-test-1 end-value-1)
+        (end-test-2 env-value-2)
+        (T (combiner (func (CAR X))
+                     (func (CDR X))))))
+
+(defun find-number (x)
+  (cond ((numberp x) x)
+        ((atom x) nil)
+        (t (or (find-number (car x))
+               (find-number (cdr x))))))
+```

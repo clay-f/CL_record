@@ -39,4 +39,4 @@ def extra_number(nums)
 end
 
 
-puts extra_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "hello", "world", "foo", "bar", "baz", 1])
+puts extra_number([1, 2, 10, "hello", "world", "foo", "bar", "baz", 2])
