@@ -10,5 +10,5 @@
 
 
 #### sample
-- 
-  - [recursion templates](https://github.com/clay-f/CL_record/blob/master/recursion-templates.md)
+
+- [recursion templates](https://github.com/clay-f/CL_record/blob/master/recursion-templates.md)
