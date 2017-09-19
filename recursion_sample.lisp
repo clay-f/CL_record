@@ -91,6 +91,4 @@
                      (+ cnt 1)
                      n)))))
 (defun count-up (n)
-  (count-up-recursively 1 n))
-
-;;; (count-up 5) => (1 2 3 4 5)
+  (count-up-recursively 1 n)) ; (count-up 5) => (1 2 3 4 5)
