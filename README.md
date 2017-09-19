@@ -12,3 +12,5 @@
 #### sample
 
 - [recursion templates](https://github.com/clay-f/CL_record/blob/master/recursion-templates.md)
+- using help package show recursion info
+	> (require "dtrace.generic")

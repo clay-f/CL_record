@@ -2,7 +2,6 @@
 ;;;  recursion sample and common template
 ;;;
 
-
 (defun anyoddp (x)
   (cond ((null x) nil)
         ((oddp (first x)) t)
@@ -72,3 +71,26 @@
         ((atom x) 'q)
         (t (cons (atoms-to-q (car x))
                  (atoms-to-q (cdr x))))))
+
+(defun count-atoms (x)
+  (cond ((null x) 0)
+        ((atom x) 1)
+        (t (+ (count-atoms (car x))
+              (count-atoms (cdr x))))))
+
+
+;;; For some problems it is useful to structure the solution as a helping function plus a recursive function
+;;; The recursive function does most of the work
+;;; The helping function is the one that you call from top level
+;;; it performs some special service either at the beginning or the end of the recursion
+
+(defun count-up-recursively (cnt n)
+  (cond ((> cnt n) nil)
+        (t (cons cnt
+                  (count-up-recursively
+                     (+ cnt 1)
+                     n)))))
+(defun count-up (n)
+  (count-up-recursively 1 n))
+
+;;; (count-up 5) => (1 2 3 4 5)
