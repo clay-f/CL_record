@@ -46,7 +46,6 @@
               (rest x)
               (cons (first x) result)))))
 
-
 (defun laugh (n)
   (cond ((zerop n) nil)
         (t (cons 'ha (laugh (- n 1))))))
