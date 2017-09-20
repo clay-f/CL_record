@@ -2,6 +2,7 @@
 ;;;  recursion sample and common template
 ;;;
 
+;;; tail-recursion
 (defun anyoddp (x)
   (cond ((null x) nil)
         ((oddp (first x)) t)
@@ -11,9 +12,40 @@
   (cond ((zerop n) 1)
         (t (* n (fact (- n 1))))))
 
+
+;;; non tail-recursion
 (defun count-slices (loaf)
   (cond ((null loaf) 0)
         (t (+ 1 (count-slices (rest loaf))))))
+
+;;; it is better to write recursive functions in tail-recursive form whenever possible
+;;; A common technique for producing a tail-recursive version of an ordinary recursive
+;;;   function is to introduce an extra variable for accumulating augmentation values.
+(defun tr-count-slices (loaf)
+  (tr-cs1 loaf 0))
+
+(defun tr-cs1 (loaf n)
+  (cond ((null loaf) n)
+      (t (tr-cs1 (rest loaf) (+ n 1)))))
+
+;;; non tail-recursion
+;;; After the recursive call returns, the result is augmented by APPEND
+(defun my-reverse (x)
+  (cond ((null x) nil)
+      (t (append (reverse (rest x))
+         (list (first x)))))) ; (my-reverse '(a b c)) => (c b a)
+
+;;; Here is a two-part, tail-recursive definition of REVERSE that uses an extra
+;;;   variable to build up the result with (rather than after) each recursive call.
+(defun tr-reverse (x)
+  (tr-revl x nil))
+
+(defun tr-revl (x result)
+  (cond ((null x) result)
+        (t (tr-revl
+              (rest x)
+              (cons (first x) result)))))
+
 
 (defun laugh (n)
   (cond ((zerop n) nil)

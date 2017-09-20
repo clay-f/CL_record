@@ -1,4 +1,4 @@
-## Record part of common lisp
+
 > ref COMMON LISP A Gentle Introduction to Symbolic Computation
 
 ## recorsion
@@ -7,7 +7,11 @@
 2. Decide how to take one step
 3. Break the journey down into that step plus a smaller journey
 
+#### Advantages of Tail Recursion
+> tail-recursive functions do no work after the recursive call; the function returns whatever the recursive call returns
+> calls return the same value as the terminal call
 
+####
 
 #### sample
 
